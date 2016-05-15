@@ -2,6 +2,7 @@ package com.Techbus.ipinioapp;
 
 import android.app.ProgressDialog;
 import android.os.Bundle;
+import android.os.Handler;
 import android.os.StrictMode;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
@@ -109,7 +110,16 @@ public class LoginActivity extends AppCompatActivity {
 
     public void onLoginSuccess() {
         _loginButton.setEnabled(true);
-        finish();
+        new Handler().postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                Intent i = new Intent(LoginActivity.this, MainActivity.class);
+                startActivity(i);
+                //finish();
+            }
+        }, 3000);
+
+        //finish();
     }
 
     public void onLoginFailed() {
@@ -137,59 +147,7 @@ public class LoginActivity extends AppCompatActivity {
         } else {
             _passwordText.setError(null);
         }
-/*
-        try {
 
-            String tempUrl="http://192.168.6.165:1215/api/validate/"+portId+"/"+password;
-
-            URL url = new URL(tempUrl);
-            HttpURLConnection conn = (HttpURLConnection) url.openConnection();
-            conn.setRequestMethod("GET");
-            conn.setRequestProperty("Accept", "application/json");
-
-            if (conn.getResponseCode() != 200) {
-                throw new RuntimeException("Failed : HTTP error code : "
-                        + conn.getResponseCode());
-            }
-
-            BufferedReader br = new BufferedReader(new InputStreamReader(
-                    (conn.getInputStream())));
-
-            String output;
-
-            System.out.println("Output from Server .... \n");
-            while ((output = br.readLine()) != null) {
-                System.out.println(output);
-                foutput=foutput+output;
-            }
-
-            conn.disconnect();
-
-        } catch (MalformedURLException e) {
-
-            e.printStackTrace();
-
-        } catch (IOException e) {
-
-            e.printStackTrace();
-
-        }
-
-        try {
-            JSONObject reader = new JSONObject(foutput);
-            String status = reader.getString("status");
-            if (status.equals("000"))
-            {
-                return !valid;
-            }
-            else
-            {
-                valid=false;//change here
-            }
-        } catch (JSONException e) {
-            e.printStackTrace();
-        }
-*/
         return valid;
     }
 }

@@ -56,8 +56,8 @@ public static float jobId=0;
             }
         });
 
-        Intent intent = new Intent(this, LoginActivity.class);
-        startActivity(intent);
+        //Intent intent = new Intent(this, LoginActivity.class);
+        //startActivity(intent);
         MapFragment mapFragment = (MapFragment) getFragmentManager().findFragmentById(R.id.map);
         mapFragment.getMapAsync(this);
 
@@ -186,18 +186,19 @@ String foutput="";
 
         map.addMarker(new MarkerOptions()
                 .position(new LatLng(12.9200, 77.6500))
-                .title("Toy Store").alpha(122)
+                .title("Panjabhi tadka").alpha(122)
+                .snippet("HSR layout: Rs.30")
                 .icon(BitmapDescriptorFactory.fromResource(R.drawable.pack)));
 
         map.addMarker(new MarkerOptions()
                 .position(new LatLng(12.9500, 77.6100))
-                .title("BigBazaar").alpha(123)
-                .snippet("Koramangala: Rs.500/hr").icon(BitmapDescriptorFactory.fromResource(R.drawable.pack)));
+                .title("big frost").alpha(123)
+                .snippet("Bellandur: Rs.50").icon(BitmapDescriptorFactory.fromResource(R.drawable.pack)));
 
         map.addMarker(new MarkerOptions()
                 .position(new LatLng(12.9650,77.5540))
-                .title("Wood Works").alpha(124)
-                .snippet("Koramangala: Rs.300/hr").icon(BitmapDescriptorFactory.fromResource(R.drawable.pack)));
+                .title("biryani flames").alpha(124)
+                .snippet("Koramangala: Rs.50").icon(BitmapDescriptorFactory.fromResource(R.drawable.pack)));
         map.setMyLocationEnabled(true);
         Location myLocation = map.getMyLocation();
        /* map.setOnMarkerClickListener(new GoogleMap.OnMarkerClickListener() {

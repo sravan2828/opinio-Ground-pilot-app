@@ -1,6 +1,7 @@
 package com.Techbus.ipinioapp;
 
 import android.content.Intent;
+import android.os.Handler;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.Menu;
@@ -22,7 +23,7 @@ public class JobDetail extends AppCompatActivity {
         TextView jobIDTF;
         TextView LocationTF;
         TextView TimeTF;
-        final Button accept,reject,Started,Completed;
+        final Button accept,reject,Started,Completed,findLocation;
 
         jobIDTF = (TextView) findViewById(R.id.JobID);
         LocationTF= (TextView) findViewById(R.id.Location);
@@ -35,6 +36,7 @@ public class JobDetail extends AppCompatActivity {
         reject=(Button)findViewById(R.id.Cancel);
         Started=(Button)findViewById(R.id.StartedBT);
         Completed=(Button)findViewById(R.id.CompletedBT);
+        findLocation = (Button)findViewById(R.id.findLocation);
         accept.setOnClickListener(new View.OnClickListener() {
 
             @Override
@@ -62,12 +64,17 @@ public class JobDetail extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Toast.makeText(JobDetail.this, "Started Journey", Toast.LENGTH_SHORT).show();
-                 finish();
-
-
+                deliverview();
+                 //finish();
             }
+        });
+        findLocation.setOnClickListener(new View.OnClickListener() {
 
-
+            @Override
+            public void onClick(View view) {
+                Toast.makeText(JobDetail.this, "Waiting for Location", Toast.LENGTH_LONG).show();
+                deliverview();
+            }
         });
         Completed.setOnClickListener(new View.OnClickListener() {
 
@@ -78,6 +85,22 @@ public class JobDetail extends AppCompatActivity {
             }
 
         });
+    }
+    public void deliverview()
+    {
+
+
+        new Handler().postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                Intent i = new Intent(JobDetail.this, deliver.class);
+                startActivity(i);
+                finish();
+            }
+        }, 3000);
+
+
+
     }
 
 
