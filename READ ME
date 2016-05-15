@@ -1,0 +1,14 @@
+Problem statement:
+we found that one of the major problem with last mile delivery is that some of the new ground pilots are un aware of the locality while 
+delivering,some orders just have location description but not coordinates, so the pilot keeps on disturbing the customer for the address.
+Customers hate to have this conversations where they call 10 times to get to the right place.
+
+Solution: 
+The team has concentrated in solving the issues faced by ground pilot while giving a delivery.The System is designed such a way that it
+Provides real time order information. In the case of the delivery person not Able to find the delivery point or the pick up point there
+Would be a service person who would capture the current location of the pilot and provide him the path. When the delivery is completed  
+he would be advised of the next pick up point on basis of the current location there by maintaining  continuous flow. This saves time 
+and fuel consumption and therefore cost of delivery is reduced.
+
+Assumptions:
+Due to lack of time, we mocked the communication between the server and the pilot app.
